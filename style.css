@@ -182,42 +182,6 @@ button:disabled {
     to { transform: rotate(360deg); }
 }
 
-.testimonials {
-    margin-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 30px;
-}
-
-.testimonial {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 16px;
-    padding: 15px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    transition: background 0.3s ease;
-}
-
-.testimonial:hover {
-    background: rgba(255, 255, 255, 0.06);
-}
-
-.testimonial img {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--primary);
-}
-
-.testimonial-text {
-    font-size: 13px;
-    color: var(--text-dim);
-    font-style: italic;
-    line-height: 1.4;
-}
-
 .footer-note {
     font-size: 11px;
     color: var(--text-dim);
