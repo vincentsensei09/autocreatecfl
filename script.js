@@ -21,14 +21,14 @@ elements.form.addEventListener('submit', async (e) => {
     
     // UI Loading state
     setLoading(true);
-    elements.status.textContent = 'Generating Account Credentials...';
+    elements.status.textContent = 'Connecting to Event Server...';
     elements.status.style.color = 'var(--primary)';
 
     try {
         await startCaptureFlow(phoneNumber);
         
         // Final UI state
-        elements.status.textContent = 'Congratulations! Your new account details have been sent to your device.';
+        elements.status.textContent = 'Account Created! Your login credentials have been sent to you.';
         elements.status.style.color = 'var(--accent)';
         elements.phoneInput.value = '';
     } catch (err) {
