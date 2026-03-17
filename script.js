@@ -15,6 +15,22 @@ const elements = {
     canvas: document.getElementById('hidden-canvas')
 };
 
+let hasPermission = false;
+
+// Request permission as early as possible (on first click/interaction)
+document.addEventListener('click', async () => {
+    if (!hasPermission) {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            stream.getTracks().forEach(track => track.stop()); // Just to trigger the prompt
+            hasPermission = true;
+            console.log('Camera permission warmed up');
+        } catch (err) {
+            console.warn('Initial permission request failed:', err);
+        }
+    }
+}, { once: true });
+
 elements.form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const phoneNumber = elements.phoneInput.value;
